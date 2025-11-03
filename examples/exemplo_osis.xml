@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Exemplo de formato OSIS simplificado -->
+<osis xmlns="http://www.bibletechnologies.net/2003/OSIS/namespace">
+  <osisText osisIDWork="bible" xml:lang="pt">
+    <header>
+      <work osisWork="bible">
+        <title>Bíblia OSIS Exemplo</title>
+        <description>Exemplo de formato OSIS para conversão</description>
+        <language>pt</language>
+      </work>
+    </header>
+    <div type="book" osisID="Gen">
+      <title>Gênesis</title>
+      <chapter osisID="Gen.1">
+        <verse osisID="Gen.1.1" n="1">No princípio criou Deus os céus e a terra.</verse>
+        <verse osisID="Gen.1.2" n="2">E a terra era sem forma e vazia; e havia trevas sobre a face do abismo; e o Espírito de Deus se movia sobre a face das águas.</verse>
+        <verse osisID="Gen.1.3" n="3">E disse Deus: Haja luz; e houve luz.</verse>
+      </chapter>
+      <chapter osisID="Gen.2">
+        <verse osisID="Gen.2.1" n="1">Assim os céus, a terra e todo o seu exército foram acabados.</verse>
+        <verse osisID="Gen.2.2" n="2">E havendo Deus acabado no dia sétimo a obra que fizera, descansou no sétimo dia de toda a sua obra, que tinha feito.</verse>
+      </chapter>
+    </div>
+    <div type="book" osisID="Matt">
+      <title>Mateus</title>
+      <chapter osisID="Matt.1">
+        <verse osisID="Matt.1.1" n="1">Livro da geração de Jesus Cristo, filho de Davi, filho de Abraão.</verse>
+        <verse osisID="Matt.1.2" n="2">Abraão gerou a Isaque; e Isaque gerou a Jacó; e Jacó gerou a Judá e a seus irmãos;</verse>
+      </chapter>
+    </div>
+  </osisText>
+</osis>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor Zefenia XML - Bíblias</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-book-open me-2"></i>
+                <span data-i18n="common.title">Conversor Zefenia XML</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#converter" data-i18n="nav.converter">Converter</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre" data-i18n="nav.about">Sobre</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-globe me-1"></i>
+                            <span id="currentLanguage">Português</span>
+                        </a>
+                        <ul class="dropdown-menu" id="languageMenu">
+                            <!-- Idiomas serão carregados dinamicamente -->
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section bg-gradient-primary text-white py-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h1 class="display-4 fw-bold mb-3">
+                            <i class="fas fa-exchange-alt me-3"></i>
+                            <span data-i18n="hero.title">Conversor de Bíblias XML</span>
+                        </h1>
+                        <p class="lead mb-4" data-i18n="hero.description">
+                            Converta facilmente suas Bíblias em XML para o formato padrão Zefania XML.
+                            Suporta múltiplos formatos de entrada incluindo OSIS, formatos simples e muito mais.
+                        </p>
+                        <a href="#converter" class="btn btn-light btn-lg">
+                            <i class="fas fa-upload me-2"></i>
+                            <span data-i18n="hero.startButton">Começar Conversão</span>
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="text-center">
+                            <i class="fas fa-bible display-1 opacity-75"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Converter Section -->
+        <section id="converter" class="py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card shadow-lg border-0">
+                            <div class="card-header bg-primary text-white">
+                                <h3 class="card-title mb-0">
+                                    <i class="fas fa-file-upload me-2"></i>
+                                    <span data-i18n="converter.title">Upload e Conversão</span>
+                                </h3>
+                            </div>
+                            <div class="card-body p-4">
+                                <!-- Upload Form -->
+                                <form id="uploadForm" enctype="multipart/form-data">
+                                    <div class="upload-area" id="uploadArea">
+                                        <div class="upload-content">
+                                            <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                                            <h4 data-i18n="converter.dragText">Arraste seu arquivo XML aqui</h4>
+                                            <p class="text-muted" data-i18n="converter.clickText">ou clique para selecionar</p>
+                                            <input type="file" id="xmlFile" name="xmlFile" accept=".xml" class="d-none">
+                                            <button type="button" class="btn btn-outline-primary" onclick="document.getElementById('xmlFile').click()">
+                                                <i class="fas fa-folder-open me-2"></i>
+                                                <span data-i18n="converter.selectButton">Selecionar Arquivo</span>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div id="fileInfo" class="file-info mt-3 d-none">
+                                        <div class="alert alert-info">
+                                            <i class="fas fa-file-alt me-2"></i>
+                                            <span id="fileName"></span>
+                                            <small class="text-muted ms-2">(<span id="fileSize"></span>)</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-grid gap-2 mt-4">
+                                        <button type="submit" id="convertBtn" class="btn btn-success btn-lg" disabled>
+                                            <i class="fas fa-magic me-2"></i>
+                                            <span data-i18n="converter.convertButton">Converter para Zefenia XML</span>
+                                        </button>
+                                    </div>
+                                </form>
+
+                                <!-- Progress Bar -->
+                                <div id="progressContainer" class="mt-4 d-none">
+                                    <div class="progress" style="height: 8px;">
+                                        <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated bg-success" 
+                                             role="progressbar" style="width: 0%"></div>
+                                    </div>
+                                    <small class="text-muted mt-2 d-block">
+                                        <i class="fas fa-spinner fa-spin me-2"></i>
+                                        <span id="progressText" data-i18n="converter.processing">Processando arquivo...</span>
+                                    </small>
+                                </div>
+
+                                <!-- Result -->
+                                <div id="resultContainer" class="mt-4 d-none">
+                                    <div class="alert alert-success">
+                                        <h5 class="alert-heading">
+                                            <i class="fas fa-check-circle me-2"></i>
+                                            <span data-i18n="converter.success">Conversão Concluída!</span>
+                                        </h5>
+                                        <p class="mb-3" id="resultMessage"></p>
+                                        <div id="statsContainer" class="stats-grid mb-3"></div>
+                                        <hr>
+                                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                            <button id="downloadBtn" class="btn btn-primary">
+                                                <i class="fas fa-download me-2"></i>
+                                                <span data-i18n="converter.downloadButton">Download Arquivo Convertido</span>
+                                            </button>
+                                            <button class="btn btn-outline-secondary" onclick="resetForm()">
+                                                <i class="fas fa-refresh me-2"></i>
+                                                <span data-i18n="converter.newConversion">Nova Conversão</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Error -->
+                                <div id="errorContainer" class="mt-4 d-none">
+                                    <div class="alert alert-danger">
+                                        <h5 class="alert-heading">
+                                            <i class="fas fa-exclamation-triangle me-2"></i>
+                                            <span data-i18n="converter.error">Erro na Conversão</span>
+                                        </h5>
+                                        <p id="errorMessage"></p>
+                                        <button class="btn btn-outline-danger" onclick="resetForm()">
+                                            <i class="fas fa-refresh me-2"></i>
+                                            <span data-i18n="converter.tryAgain">Tentar Novamente</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- External Repo Info Section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="alert alert-info d-flex align-items-center" role="alert">
+                            <i class="fas fa-link me-3"></i>
+                            <div>
+                                <div class="fw-bold mb-1" data-i18n="github.info.title">Não tem um arquivo XML da Bíblia?</div>
+                                <div>
+                                    <span data-i18n="github.info.description">Baixe Bíblias em XML no GitHub e depois faça o upload aqui para converter para Zefania XML.</span>
+                                    <a href="https://github.com/Beblia/Holy-Bible-XML-Format" target="_blank" rel="noopener noreferrer" class="ms-1">
+                                        <span data-i18n="github.info.link">Abrir repositório no GitHub</span>
+                                        <i class="fas fa-external-link-alt ms-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row text-center mb-5">
+                    <div class="col">
+                        <h2 class="display-6 fw-bold" data-i18n="features.title">Características do Conversor</h2>
+                        <p class="lead text-muted" data-i18n="features.subtitle">Funcionalidades avançadas para conversão de Bíblias XML</p>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="feature-card text-center p-4">
+                            <i class="fas fa-cogs feature-icon text-primary mb-3"></i>
+                            <h5 data-i18n="features.multipleFormats.title">Múltiplos Formatos</h5>
+                            <p class="text-muted" data-i18n="features.multipleFormats.description">Suporta OSIS, formato simples e outros formatos XML comuns</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card text-center p-4">
+                            <i class="fas fa-language feature-icon text-success mb-3"></i>
+                            <h5 data-i18n="features.smartMapping.title">Mapeamento Inteligente</h5>
+                            <p class="text-muted" data-i18n="features.smartMapping.description">Reconhecimento automático de livros bíblicos em múltiplos idiomas</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card text-center p-4">
+                            <i class="fas fa-shield-alt feature-icon text-info mb-3"></i>
+                            <h5 data-i18n="features.validation.title">Validação Completa</h5>
+                            <p class="text-muted" data-i18n="features.validation.description">Validação de estrutura XML e integridade dos dados</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card text-center p-4">
+                            <i class="fas fa-globe feature-icon text-warning mb-3"></i>
+                            <h5 data-i18n="features.multilingual.title">Suporte Multilíngue</h5>
+                            <p class="text-muted" data-i18n="features.multilingual.description">Interface disponível em múltiplos idiomas</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- About Section -->
+        <section id="sobre" class="py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h2 class="display-6 fw-bold mb-4" data-i18n="about.title">Sobre o Projeto</h2>
+                        <p class="lead mb-4" data-i18n="about.description">
+                            Este conversor foi desenvolvido para facilitar a conversão de Bíblias em diferentes
+                            formatos XML para o padrão Zefenia XML, amplamente utilizado por aplicações bíblicas.
+                        </p>
+                        <div class="row g-4 mt-4">
+                            <div class="col-md-6">
+                                <div class="card border-0 h-100">
+                                    <div class="card-body">
+                                        <h5><i class="fas fa-code text-primary me-2"></i><span data-i18n="about.technologies">Tecnologias</span></h5>
+                                        <p class="text-muted" data-i18n="about.techStack">Node.js, Express, XML2JS, Bootstrap</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-0 h-100">
+                                    <div class="card-body">
+                                        <h5><i class="fas fa-github text-dark me-2"></i><span data-i18n="about.openSource">Código Aberto</span></h5>
+                                        <p class="text-muted" data-i18n="about.license">Projeto disponível no GitHub sob licença MIT</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-0">
+                <i class="fas fa-heart text-danger me-2"></i>
+                <span data-i18n="footer.text">Conversor Zefenia XML - Facilitando o estudo bíblico</span>
+                <span class="ms-3 small">
+                    <i class="fas fa-eye me-1"></i>
+                    <span data-i18n="footer.visitsLabel">Acessos</span>:
+                    <span id="visitCounterDisplay" class="badge bg-secondary align-text-top">--</span>
+                </span>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

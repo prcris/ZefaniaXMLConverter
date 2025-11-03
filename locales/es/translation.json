@@ -1,0 +1,135 @@
+{
+  "common": {
+    "title": "Conversor Zefania XML",
+    "subtitle": "Conversor de Biblias XML",
+    "description": "Convierte fácilmente tus Biblias en XML al formato estándar Zefania XML",
+    "language": "Idioma",
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "download": "Descargar",
+    "upload": "Subir",
+    "convert": "Convertir",
+    "cancel": "Cancelar",
+    "close": "Cerrar",
+    "yes": "Sí",
+    "no": "No",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "all": "Todos",
+    "none": "Ninguno",
+    "select": "Seleccionar",
+    "file": "Archivo",
+    "size": "Tamaño",
+    "date": "Fecha",
+    "name": "Nombre"
+  },
+  "nav": {
+    "converter": "Convertidor",
+    "catalog": "Catálogo",
+    "files": "Archivos",
+    "about": "Acerca de"
+  },
+  "hero": {
+    "title": "Conversor de Biblias XML",
+    "description": "Convierte fácilmente tus Biblias en XML al formato estándar Zefania XML. Soporta múltiples formatos de entrada incluyendo OSIS, formatos simples y mucho más.",
+    "startButton": "Comenzar Conversión"
+  },
+  "converter": {
+    "title": "Subida y Conversión",
+    "dragText": "Arrastra tu archivo XML aquí",
+    "clickText": "o haz clic para seleccionar",
+    "selectButton": "Seleccionar Archivo",
+    "convertButton": "Convertir a Zefania XML",
+    "processing": "Procesando archivo...",
+    "analyzing": "Analizando archivo XML...",
+    "detecting": "Detectando formato...",
+    "mapping": "Mapeando libros bíblicos...",
+    "converting": "Convirtiendo a Zefania XML...",
+    "finalizing": "Finalizando conversión...",
+    "success": "¡Conversión Completada!",
+    "successMessage": "Archivo \"{{originalName}}\" convertido exitosamente a \"{{convertedName}}\".",
+    "downloadButton": "Descargar Archivo Convertido",
+    "newConversion": "Nueva Conversión",
+    "error": "Error en la Conversión",
+    "tryAgain": "Intentar de Nuevo",
+    "onlyXmlFiles": "¡Solo se permiten archivos XML!",
+    "noFileSelected": "No se subió ningún archivo",
+    "fileTooBig": "Archivo demasiado grande. Máximo 50MB permitido.",
+    "connectionError": "Error de conexión. Verifica tu internet e intenta de nuevo."
+  },
+  "catalog": {
+    "title": "Catálogo de Biblias",
+    "description": "Navega y descarga biblias de nuestra colección de más de 1000 versiones en 200+ idiomas",
+    "searchPlaceholder": "Buscar biblias...",
+    "filterByLanguage": "Filtrar por idioma",
+    "noResults": "No se encontraron biblias",
+    "downloadAndConvert": "Descargar y Convertir",
+    "downloading": "Descargando...",
+    "downloadError": "Error al descargar biblia",
+    "loadingCatalog": "Cargando catálogo...",
+    "refreshCatalog": "Actualizar Catálogo"
+  },
+  "features": {
+    "title": "Características del Conversor",
+    "subtitle": "Funcionalidades avanzadas para conversión de Biblias XML",
+    "multipleFormats": {
+      "title": "Múltiples Formatos",
+      "description": "Soporta OSIS, formato simple y otros formatos XML comunes"
+    },
+    "smartMapping": {
+      "title": "Mapeo Inteligente",
+      "description": "Reconocimiento automático de libros bíblicos en múltiples idiomas"
+    },
+    "validation": {
+      "title": "Validación Completa",
+      "description": "Validación de estructura XML e integridad de datos"
+    },
+    "multilingual": {
+      "title": "Soporte Multiidioma",
+      "description": "Interfaz disponible en múltiples idiomas"
+    },
+    "catalog": {
+      "title": "Catálogo Online",
+      "description": "Acceso directo a más de 1000 versiones bíblicas"
+    },
+    "automatic": {
+      "title": "Descarga Automática",
+      "description": "Descarga y convierte directamente desde el repositorio online"
+    }
+  },
+  "files": {
+    "title": "Archivos Convertidos",
+    "noFiles": "No se encontraron archivos convertidos.",
+    "retention": "Los archivos se mantienen por 24 horas después de la conversión.",
+    "refresh": "Actualizar Lista",
+    "cleanup": "Limpiar Archivos Antiguos",
+    "cleanupConfirm": "¿Estás seguro de que quieres eliminar todos los archivos antiguos (más de 24 horas)?",
+    "cleanupSuccess": "{{count}} archivos antiguos eliminados",
+    "loadError": "Error al cargar la lista de archivos."
+  },
+  "about": {
+    "title": "Acerca del Proyecto",
+    "description": "Este conversor fue desarrollado para facilitar la conversión de Biblias en diferentes formatos XML al estándar Zefania XML, ampliamente utilizado por aplicaciones bíblicas.",
+    "technologies": "Tecnologías",
+    "techStack": "Node.js, Express, XML2JS, Bootstrap",
+    "openSource": "Código Abierto",
+    "license": "Proyecto disponible en GitHub bajo licencia MIT"
+  },
+  "footer": {
+    "text": "Conversor Zefania XML - Facilitando el estudio bíblico",
+    "visitsLabel": "Visitas"
+  },
+  "stats": {
+    "books": "Libros",
+    "chapters": "Capítulos",
+    "verses": "Versículos"
+  },
+  "github": {
+    "info": {
+      "title": "¿No tienes un archivo XML de la Biblia?",
+      "description": "Descarga Biblias en XML desde GitHub y luego súbelas aquí para convertir a Zefania XML.",
+      "link": "Abrir repositorio en GitHub"
+    }
+  }
+}
