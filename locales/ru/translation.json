@@ -1,8 +1,8 @@
 {
   "common": {
-    "title": "Конвертер Zefenia XML",
+  "title": "Конвертер Zefania XML",
     "subtitle": "Конвертер Библии в XML",
-    "description": "Легко конвертируйте ваши Библии в XML в стандарт Zefenia XML",
+  "description": "Легко конвертируйте ваши Библии в XML в стандарт Zefania XML",
     "language": "Язык",
     "loading": "Загрузка...",
     "error": "Ошибка",
@@ -32,7 +32,7 @@
   },
   "hero": {
     "title": "Конвертер Библии в XML",
-    "description": "Легко конвертируйте ваши Библии в XML в стандарт Zefenia XML. Поддерживаются несколько форматов входных данных, включая OSIS и простой формат.",
+  "description": "Легко конвертируйте ваши Библии в XML в стандарт Zefania XML. Поддерживаются несколько форматов входных данных, включая OSIS и простой формат.",
     "startButton": "Начать конвертацию"
   },
   "converter": {
@@ -40,12 +40,12 @@
     "dragText": "Перетащите XML-файл сюда",
     "clickText": "или нажмите, чтобы выбрать",
     "selectButton": "Выбрать файл",
-    "convertButton": "Конвертировать в Zefenia XML",
+  "convertButton": "Конвертировать в Zefania XML",
     "processing": "Обработка файла...",
     "analyzing": "Анализ XML-файла...",
     "detecting": "Определение формата...",
     "mapping": "Распознавание книг Библии...",
-    "converting": "Конвертация в Zefenia XML...",
+  "converting": "Конвертация в Zefania XML...",
     "finalizing": "Завершение конвертации...",
     "success": "Конвертация завершена!",
     "successMessage": "Файл \"{{originalName}}\" успешно конвертирован в \"{{convertedName}}\".",
@@ -80,14 +80,14 @@
   },
   "about": {
     "title": "О проекте",
-    "description": "Этот конвертер разработан для упрощения конвертации Библий из различных XML-форматов в стандарт Zefenia XML, широко используемый библейскими приложениями.",
+  "description": "Этот конвертер разработан для упрощения конвертации Библий из различных XML-форматов в стандарт Zefania XML, широко используемый библейскими приложениями.",
     "technologies": "Технологии",
     "techStack": "Node.js, Express, XML2JS, Bootstrap",
     "openSource": "Открытый исходный код",
     "license": "Проект на GitHub под лицензией MIT"
   },
   "footer": {
-    "text": "Конвертер Zefenia XML — для удобного изучения Библии",
+  "text": "Конвертер Zefania XML — для удобного изучения Библии",
     "visitsLabel": "Посещения"
   },
   "stats": {
@@ -98,7 +98,7 @@
   "github": {
     "info": {
       "title": "Нет XML-файла Библии?",
-      "description": "Скачайте Библии в XML с GitHub, затем загрузите сюда для конвертации в Zefenia XML.",
+  "description": "Скачайте Библии в XML с GitHub, затем загрузите сюда для конвертации в Zefania XML.",
       "link": "Открыть репозиторий на GitHub"
     }
   }

@@ -1,9 +1,9 @@
 const { parseXMLFile } = require('../src/parsers/xmlParser');
-const { convertToZefenia } = require('../src/converters/zefeniaConverter');
+const { convertToZefania } = require('../src/converters/zefaniaConverter');
 const { normalizeBookName } = require('../src/utils/bookMapping');
 const path = require('path');
 
-describe('Zefenia XML Converter Tests', () => {
+describe('Zefania XML Converter Tests', () => {
   
   describe('Book Mapping', () => {
     test('should normalize Genesis correctly', () => {
@@ -68,8 +68,8 @@ describe('Zefenia XML Converter Tests', () => {
     });
   });
 
-  describe('Zefenia Converter', () => {
-    test('should convert structured data to Zefenia XML', async () => {
+  describe('Zefania Converter', () => {
+    test('should convert structured data to Zefania XML', async () => {
       const testData = {
         title: 'Test Bible',
         description: 'Test Description',
@@ -94,7 +94,7 @@ describe('Zefenia XML Converter Tests', () => {
         ]
       };
 
-      const result = await convertToZefenia(testData);
+  const result = await convertToZefania(testData);
       
       expect(result).toBeTruthy();
       expect(typeof result).toBe('string');
@@ -111,7 +111,7 @@ describe('Zefenia XML Converter Tests', () => {
         books: [] // Empty books array should cause error
       };
 
-      await expect(convertToZefenia(invalidData)).rejects.toThrow();
+  await expect(convertToZefania(invalidData)).rejects.toThrow();
     });
   });
 
@@ -125,9 +125,9 @@ describe('Zefenia XML Converter Tests', () => {
         expect(parsedData).toBeTruthy();
         expect(parsedData.books.length).toBeGreaterThan(0);
 
-        const zefeniaXML = await convertToZefenia(parsedData);
-        expect(zefeniaXML).toBeTruthy();
-        expect(zefeniaXML).toContain('<XMLBIBLE');
+  const zefaniaXML = await convertToZefania(parsedData);
+  expect(zefaniaXML).toBeTruthy();
+  expect(zefaniaXML).toContain('<XMLBIBLE');
       } catch (error) {
         // Se o arquivo não existir, pular o teste
         console.log('Example file not found, skipping integration test');

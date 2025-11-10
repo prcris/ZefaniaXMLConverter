@@ -1,11 +1,11 @@
-# Zefenia XML Converter
+# Zefania XML Converter
 
-Convert Bible XML files to the Zefenia XML standard through a simple, multilingual web app. Built with Node.js, Express, xml2js, and a lightweight vanilla JS + Bootstrap UI.
+Convert Bible XML files to the Zefania XML standard through a simple, multilingual web app. Built with Node.js, Express, xml2js, and a lightweight vanilla JS + Bootstrap UI.
 
 ## Highlights
 
 - Multiple input formats: OSIS, simple XML, and nested structures like `<testament>/<book>/<chapter>/<verse>`
-- Clean Zefenia XML output (UTF‑8 without BOM; valid XML prolog)
+- Clean Zefania XML output (UTF‑8 without BOM; valid XML prolog)
 - Smart book mapping (by number/name) and duplicate‑safe verse handling
 - Temporary, tokenized downloads that expire after ~2 hours (no persistent storage)
 - Multilingual interface: PT, EN, ES, RU, UK (easy to add more)
@@ -47,7 +47,7 @@ src/
 		convert.js      # POST /convert and GET /download/:token
 	utils/
 		xmlParser.js        # Parses input XML (OSIS/simple/nested)
-		zefeniaConverter.js # Builds Zefenia XML with xmlbuilder2
+		zefaniaConverter.js # Builds Zefania XML with xmlbuilder2
 		xmlSanitizer.js     # Strips BOM/whitespace; ensures XML prolog
 		tempStore.js        # In‑memory token store with TTL (~2h) + sweeper
 	server.js         # Express setup, static files, translations endpoint
@@ -61,7 +61,7 @@ create_github_repo.bat # Helper to create a GitHub repo and push (Windows)
 
 1. Upload: the server receives the XML via `POST /convert` (multer)
 2. Parse: `xmlParser` detects the structure and extracts books/chapters/verses
-3. Convert: `zefeniaConverter` generates standard Zefenia XML
+3. Convert: `zefaniaConverter` generates standard Zefania XML
 4. Sanitize: `xmlSanitizer` guarantees a clean XML prolog and UTF‑8 (no BOM)
 5. Deliver: a temp file is registered in `tempStore` and a download token is returned
 6. Download: the client fetches `/download/:token` and saves the XML
@@ -116,5 +116,5 @@ Use the helper script to create/push a repository via GitHub CLI:
 
 MIT
 
-# ZefeniaXMLConverter
-Conversor de XML para Zefenia
+# ZefaniaXMLConverter
+Conversor de XML para Zefania

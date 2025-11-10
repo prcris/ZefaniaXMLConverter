@@ -1,13 +1,13 @@
 const xmlbuilder2 = require('xmlbuilder2');
 
 /**
- * Converte dados estruturados para formato Zefenia XML
+ * Converte dados estruturados para formato Zefania XML
  * @param {object} bibleData - Dados da bíblia estruturados
- * @returns {string} - XML no formato Zefenia
+ * @returns {string} - XML no formato Zefania
  */
-function convertToZefenia(bibleData) {
+function convertToZefania(bibleData) { // backward compatible naming fixed
   try {
-    console.log('Iniciando conversão para Zefenia XML...');
+     console.log('Iniciando conversão para Zefania XML...');
     
     // Criar documento XML base
     const doc = xmlbuilder2.create({
@@ -29,8 +29,8 @@ function convertToZefenia(bibleData) {
     // Adicionar informações da bíblia
     const information = xmlBible.ele('INFORMATION');
     information.ele('title').txt(bibleData.title || 'Bíblia Convertida');
-    information.ele('creator').txt('Zefenia XML Converter');
-    information.ele('description').txt('Bíblia convertida automaticamente para formato Zefenia XML');
+  information.ele('creator').txt('Zefania XML Converter');
+  information.ele('description').txt('Bíblia convertida automaticamente para formato Zefania XML');
     information.ele('language').txt('pt');
     information.ele('date').txt(new Date().toISOString().split('T')[0]);
     information.ele('format').txt('Zefania XML Bible Markup Language');
@@ -80,12 +80,12 @@ function convertToZefenia(bibleData) {
       newline: '\n'
     });
     
-    console.log('Conversão para Zefenia XML concluída');
+  console.log('Conversão para Zefania XML concluída');
     return xmlString;
     
   } catch (error) {
-    console.error('Erro na conversão para Zefenia:', error);
-    throw new Error(`Erro na conversão para Zefenia XML: ${error.message}`);
+  console.error('Erro na conversão para Zefania:', error);
+  throw new Error(`Erro na conversão para Zefania XML: ${error.message}`);
   }
 }
 
@@ -271,7 +271,9 @@ function cleanVerseText(text) {
 }
 
 module.exports = {
-  convertToZefenia,
+  convertToZefania,
+  // Backward compatibility alias
+  convertToZefenia: convertToZefania, // alias kept for compatibility (old misspelling)
   getBookNumber,
   getBookShortName,
   cleanVerseText

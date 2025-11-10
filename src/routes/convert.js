@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs-extra');
 const { parseXML } = require('../utils/xmlParser');
-const { convertToZefenia } = require('../utils/zefeniaConverter');
+const { convertToZefania } = require('../utils/zefaniaConverter');
 const { sanitizeXmlProlog } = require('../utils/xmlSanitizer');
 const { getSupportedLanguages } = require('../utils/i18n');
 const tempStore = require('../utils/tempStore');
@@ -39,17 +39,17 @@ router.post('/convert', (req, res) => {
         throw new Error('Arquivo XML não contém dados bíblicos válidos');
       }
       
-      // 2. Conversão para Zefenia XML
-      let zefeniaXML = await convertToZefenia(parsedData);
+  // 2. Conversão para Zefania XML
+  let zefaniaXML = await convertToZefania(parsedData);
       // Sanitizar para evitar erros como "Conteúdo não é permitido no prólogo"
-      zefeniaXML = sanitizeXmlProlog(zefeniaXML);
+  zefaniaXML = sanitizeXmlProlog(zefaniaXML);
 
       // 3. Salvar arquivo convertido como temporário e registrar token (TTL 2h)
-      const outputFileName = fileName.replace(/\.xml$/i, '_zefenia.xml');
+  const outputFileName = fileName.replace(/\.xml$/i, '_zefania.xml');
       const tempName = `${Date.now()}-${Math.round(Math.random()*1e9)}.xml`;
       const outputPath = path.join(__dirname, '../../downloads', tempName);
       // Gravar explicitamente sem BOM
-      await fs.writeFile(outputPath, Buffer.from(zefeniaXML, 'utf8'));
+  await fs.writeFile(outputPath, Buffer.from(zefaniaXML, 'utf8'));
 
       // Registrar no tempStore (2 horas)
       const token = tempStore.add(outputPath, outputFileName, 2 * 60 * 60 * 1000, 'application/xml');

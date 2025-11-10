@@ -10,7 +10,7 @@ const {
   getCatalogStats 
 } = require('../utils/githubRepo');
 const { parseXML } = require('../utils/xmlParser');
-const { convertToZefenia } = require('../utils/zefeniaConverter');
+const { convertToZefania } = require('../utils/zefaniaConverter');
 const { sanitizeXmlProlog } = require('../utils/xmlSanitizer');
 
 const router = express.Router();
@@ -176,12 +176,12 @@ router.post('/download-convert', async (req, res) => {
       });
     }
     
-    // 3. Conversão para Zefenia XML
-    let zefeniaXML;
+    // 3. Conversão para Zefania XML
+    let zefaniaXML;
     try {
-      zefeniaXML = await convertToZefenia(parsedData);
+      zefaniaXML = await convertToZefania(parsedData);
       // Sanitizar o XML para evitar BOM/whitespace no prólogo
-      zefeniaXML = sanitizeXmlProlog(zefeniaXML);
+      zefaniaXML = sanitizeXmlProlog(zefaniaXML);
     } catch (convertError) {
       console.error('Erro na conversão:', convertError);
       // Limpeza do arquivo temporário
@@ -189,19 +189,19 @@ router.post('/download-convert', async (req, res) => {
       
       return res.status(500).json({
         success: false,
-        error: 'Erro na conversão para Zefenia XML',
+        error: 'Erro na conversão para Zefania XML',
         details: convertError.message,
         ...(process.env.NODE_ENV !== 'production' ? { stack: convertError.stack } : {})
       });
     }
     
     // 4. Salvar arquivo convertido
-    const outputFileName = filename.replace(/\.xml$/i, '_zefenia.xml');
+  const outputFileName = filename.replace(/\.xml$/i, '_zefania.xml');
     const outputPath = path.join(__dirname, '../../downloads', outputFileName);
     
     try {
       // Gravar explicitamente sem BOM
-      await fs.writeFile(outputPath, Buffer.from(zefeniaXML, 'utf8'));
+  await fs.writeFile(outputPath, Buffer.from(zefaniaXML, 'utf8'));
     } catch (writeError) {
       console.error('Erro ao salvar arquivo:', writeError);
       // Limpeza do arquivo temporário

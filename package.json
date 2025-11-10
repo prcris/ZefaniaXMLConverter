@@ -1,7 +1,7 @@
 {
-  "name": "zefenia-xml-converter",
+  "name": "zefania-xml-converter",
   "version": "1.0.0",
-  "description": "Conversor de Bíblias XML para formato Zefenia XML",
+  "description": "Conversor de Bíblias XML para formato Zefania XML",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
@@ -11,7 +11,7 @@
   "keywords": [
     "bible",
     "xml",
-    "zefenia",
+  "zefania",
     "converter",
     "osis"
   ],

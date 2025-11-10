@@ -1,8 +1,8 @@
 {
   "common": {
-    "title": "Conversor Zefenia XML",
+    "title": "Conversor Zefania XML",
     "subtitle": "Conversor de Bíblias XML",
-    "description": "Converta facilmente suas Bíblias em XML para o formato padrão Zefenia XML",
+  "description": "Converta facilmente suas Bíblias em XML para o formato padrão Zefania XML",
     "language": "Idioma",
     "loading": "Carregando...",
     "error": "Erro",
@@ -32,7 +32,7 @@
   },
   "hero": {
     "title": "Conversor de Bíblias XML",
-    "description": "Converta facilmente suas Bíblias em XML para o formato padrão Zefenia XML. Suporta múltiplos formatos de entrada incluindo OSIS, formatos simples e muito mais.",
+    "description": "Converta facilmente suas Bíblias em XML para o formato padrão Zefania XML. Suporta múltiplos formatos de entrada incluindo OSIS, formatos simples e muito mais.",
     "startButton": "Começar Conversão"
   },
   "converter": {
@@ -40,14 +40,14 @@
     "dragText": "Arraste seu arquivo XML aqui",
     "clickText": "ou clique para selecionar",
     "selectButton": "Selecionar Arquivo",
-    "convertButton": "Converter para Zefenia XML",
+  "convertButton": "Converter para Zefania XML",
     "processing": "Processando arquivo...",
     "analyzing": "Analisando arquivo XML...",
     "detecting": "Detectando formato...",
     "mapping": "Mapeando livros bíblicos...",
-    "converting": "Convertendo para Zefenia XML...",
+  "converting": "Convertendo para Zefania XML...",
     "finalizing": "Finalizando conversão...",
-    "success": "Conversão Concluída!",
+  "success": "Conversão Concluída!",
     "successMessage": "Arquivo \"{{originalName}}\" convertido com sucesso para \"{{convertedName}}\".",
     "downloadButton": "Download Arquivo Convertido",
     "newConversion": "Nova Conversão",
@@ -110,14 +110,14 @@
   },
   "about": {
     "title": "Sobre o Projeto",
-    "description": "Este conversor foi desenvolvido para facilitar a conversão de Bíblias em diferentes formatos XML para o padrão Zefenia XML, amplamente utilizado por aplicações bíblicas.",
+  "description": "Este conversor foi desenvolvido para facilitar a conversão de Bíblias em diferentes formatos XML para o padrão Zefania XML, amplamente utilizado por aplicações bíblicas.",
     "technologies": "Tecnologias",
     "techStack": "Node.js, Express, XML2JS, Bootstrap",
     "openSource": "Código Aberto",
     "license": "Projeto disponível no GitHub sob licença MIT"
   },
   "footer": {
-    "text": "Conversor Zefenia XML - Facilitando o estudo bíblico",
+    "text": "Conversor Zefania XML - Facilitando o estudo bíblico",
     "visitsLabel": "Acessos"
   },
   "stats": {

@@ -1,8 +1,8 @@
 {
   "common": {
-    "title": "Zefenia XML Converter",
+    "title": "Zefania XML Converter",
     "subtitle": "Bible XML Converter",
-    "description": "Easily convert your XML Bibles to the standard Zefenia XML format",
+  "description": "Easily convert your XML Bibles to the standard Zefania XML format",
     "language": "Language",
     "loading": "Loading...",
     "error": "Error",
@@ -32,7 +32,7 @@
   },
   "hero": {
     "title": "Bible XML Converter",
-    "description": "Easily convert your XML Bibles to the standard Zefenia XML format. Supports multiple input formats including OSIS, simple formats and much more.",
+    "description": "Easily convert your XML Bibles to the standard Zefania XML format. Supports multiple input formats including OSIS, simple formats and much more.",
     "startButton": "Start Conversion"
   },
   "converter": {
@@ -40,12 +40,12 @@
     "dragText": "Drag your XML file here",
     "clickText": "or click to select",
     "selectButton": "Select File",
-    "convertButton": "Convert to Zefenia XML",
+  "convertButton": "Convert to Zefania XML",
     "processing": "Processing file...",
     "analyzing": "Analyzing XML file...",
     "detecting": "Detecting format...",
     "mapping": "Mapping biblical books...",
-    "converting": "Converting to Zefenia XML...",
+  "converting": "Converting to Zefania XML...",
     "finalizing": "Finalizing conversion...",
     "success": "Conversion Completed!",
     "successMessage": "File \"{{originalName}}\" successfully converted to \"{{convertedName}}\".",
@@ -110,14 +110,14 @@
   },
   "about": {
     "title": "About the Project",
-    "description": "This converter was developed to facilitate the conversion of Bibles in different XML formats to the Zefenia XML standard, widely used by biblical applications.",
+  "description": "This converter was developed to facilitate the conversion of Bibles in different XML formats to the Zefania XML standard, widely used by biblical applications.",
     "technologies": "Technologies",
     "techStack": "Node.js, Express, XML2JS, Bootstrap",
     "openSource": "Open Source",
     "license": "Project available on GitHub under MIT license"
   },
   "footer": {
-    "text": "Zefenia XML Converter - Facilitating biblical study",
+    "text": "Zefania XML Converter - Facilitating biblical study",
     "visitsLabel": "Visits"
   },
   "stats": {
@@ -128,7 +128,7 @@
   "github": {
     "info": {
       "title": "Don't have a Bible XML file?",
-      "description": "Download Bible XMLs from GitHub and then upload here to convert to Zefenia XML.",
+  "description": "Download Bible XMLs from GitHub and then upload here to convert to Zefania XML.",
       "link": "Open repository on GitHub"
     }
   }
